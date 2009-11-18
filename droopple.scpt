@@ -9,7 +9,7 @@ property appName : "Droopple"
 on run
 	(* settings:begin *)
 	set MyAvatar to "~/bin/droopy/avatar.jpg" -- Your avatar path
-	set MyDroopy to "~/bin/droopy/droopy.sh" -- Droopy path
+	set MyDroopy to "~/bin/droopy/droopy.sh"  -- Droopy path
 	(* settings:end *)
 	
 	(* code:begin *)
@@ -24,8 +24,7 @@ on run
 	set TheCommand to "python " & MyDroopy & " -m 'Hi! " & TheName & " here. Please send me your file.' -p " & MyAvatar & " " & ThePort & " > /dev/null 2>&1 & echo $!"
 	
 	set ThisPID to do shell script TheCommand
-	-- do shell script TheCommand
-	
+
 	set TheButton to display dialog "Droopy Server running!" buttons "Stop"
 	
 	if TheButton = "Stop" then
