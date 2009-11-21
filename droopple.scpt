@@ -10,6 +10,7 @@ on run
 	(* settings:begin *)
 	set MyAvatar to "~/bin/droopy/avatar.jpg" -- Your avatar path
 	set MyDroopy to "~/bin/droopy/droopy.sh"  -- Droopy path
+        set MyUploadDir to "~/Uploads/" -- Uploads' directory path
 	(* settings:end *)
 	
 	(* code:begin *)
@@ -21,7 +22,7 @@ on run
 	
 	-- Prepare droopy command.
 	-- Should run the comand and return pid.
-	set TheCommand to "python " & MyDroopy & " -m 'Hi! " & TheName & " here. Please send me your file.' -p " & MyAvatar & " " & ThePort & " > /dev/null 2>&1 & echo $!"
+	set TheCommand to "python " & MyDroopy & " -m 'Hi! " & TheName & " here. Please send me your file.' -d " & MyUploadDir & " -p " & MyAvatar & " " & ThePort & " > /dev/null 2>&1 & echo $!"
 	
 	set ThisPID to do shell script TheCommand
 
